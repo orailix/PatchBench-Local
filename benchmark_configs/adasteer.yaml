@@ -1,0 +1,96 @@
+{
+  "method": "adasteer",
+  "training_fixed": {
+    "use_chat_template": true,
+    "system_prompt": "You are a helpful assistant.",
+    "add_generation_prompt": false,
+    "batch_size": 32
+  },
+  "validation_fixed": {},
+  "validation_selected": {
+    "alpha_layer": {
+      "default": 9
+    },
+    "beta_layer": {
+      "default": 14
+    },
+    "b_r": {
+      "default": 0.0,
+      "fixed_by_model": {
+        "Qwen/Qwen2.5-3B-Instruct": 109.20294721239298,
+        "google/gemma-3-4b-it": 1630.7564588830835,
+        "meta-llama/Llama-3.1-8B-Instruct": 106.38571934725383,
+        "mistralai/Mistral-7B-Instruct-v0.3": -75.66147675164326
+      }
+    },
+    "w_r": {
+      "default": 0.0,
+      "fixed_by_model": {
+        "Qwen/Qwen2.5-3B-Instruct": -0.0011706236686282628,
+        "google/gemma-3-4b-it": -5.5357921746088126e-05,
+        "meta-llama/Llama-3.1-8B-Instruct": -0.0006278684583713149,
+        "mistralai/Mistral-7B-Instruct-v0.3": 0.001099987281053144
+      }
+    },
+    "b_c": {
+      "default": 0.0,
+      "fixed_by_model": {
+        "Qwen/Qwen2.5-3B-Instruct": 51.40650745296944,
+        "google/gemma-3-4b-it": -633.2648257457147,
+        "meta-llama/Llama-3.1-8B-Instruct": -1.6148556957804021,
+        "mistralai/Mistral-7B-Instruct-v0.3": -210.59226080275502
+      }
+    },
+    "w_c": {
+      "default": 0.0,
+      "fixed_by_model": {
+        "Qwen/Qwen2.5-3B-Instruct": 0.0020435588758561836,
+        "google/gemma-3-4b-it": -0.00013649120218298577,
+        "meta-llama/Llama-3.1-8B-Instruct": -0.003261915764306845,
+        "mistralai/Mistral-7B-Instruct-v0.3": -0.00034552235059723784
+      }
+    },
+    "lambda_r": {
+      "default": 0.0,
+      "values": [
+        0.0,
+        0.025,
+        0.05,
+        0.075,
+        0.1,
+        0.15,
+        0.2,
+        0.3
+      ]
+
+    },
+    "lambda_c": {
+      "default": 0.0,
+      "values": [
+        -0.2,
+        -0.1,
+        -0.075,
+        -0.05,
+        -0.025,
+        0.0,
+        0.025,
+        0.05,
+        0.075,
+        0.1,
+        0.15,
+        0.2,
+        0.3
+      ]
+    },
+    "refusal_vector_path": {},
+    "projection_matrix_path": {}
+  },
+  "inference_fixed": {
+    "use_chat_template": true,
+    "system_prompt": "You are a helpful assistant.",
+    "add_generation_prompt": true,
+    "batch_size": 32,
+    "max_input_tokens": 4096,
+    "max_new_tokens": 250
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "method": "alphasteer",
+  "training_fixed": {
+    "use_chat_template": true,
+    "system_prompt": "You are a helpful assistant.",
+    "add_generation_prompt": false,
+    "batch_size": 32
+  },
+  "validation_fixed": {},
+  "validation_selected": {
+    "strength": {
+      "default": -0.3,
+      "values": [
+        0.0, -0.05, -0.1, -0.15, -0.2, -0.25, -0.3,
+        -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0,
+        -1.1, -1.2, -1.3, -1.4, -1.5, -1.75, -2.0
+      ],
+      "fixed_by_model": {
+        "Qwen/Qwen2.5-3B-Instruct": -0.3,
+        "google/gemma-3-4b-it": -0.15,
+        "meta-llama/Llama-3.1-8B-Instruct": -0.5,
+        "mistralai/Mistral-7B-Instruct-v0.3": -1.3
+      }
+    },
+    "steering_matrix_path": {}
+  },
+  "inference_fixed": {
+    "use_chat_template": true,
+    "system_prompt": "You are a helpful assistant.",
+    "add_generation_prompt": true,
+    "batch_size": 32,
+    "max_input_tokens": 4096,
+    "max_new_tokens": 250
+  }
+}

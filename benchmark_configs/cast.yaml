@@ -1,0 +1,128 @@
+{
+  "method": "cast",
+  "training_fixed": {
+    "use_chat_template": true,
+    "system_prompt": "You are a helpful assistant.",
+    "add_generation_prompt": false,
+    "batch_size": 1,
+    "vector_method": "pca_pairwise",
+    "condition_vector_method": "pca_pairwise",
+    "max_questions": 100,
+    "max_suffixes": 100,
+    "max_condition_examples": null,
+    "refusal_accumulate_last_x_tokens": "suffix-only",
+    "condition_accumulate_last_x_tokens": "all",
+    "condition_split": "train",
+    "save_analysis": false
+  },
+  "validation_fixed": {
+    "condition_comparison_mode": "mean",
+    "find_condition_point": true,
+    "layer_range_start": {
+      "default": 1,
+      "fixed_by_model": {
+        "Qwen/Qwen2.5-3B-Instruct": 5,
+        "google/gemma-3-4b-it": 5,
+        "mistralai/Mistral-7B-Instruct-v0.3": 5,
+        "google/gemma-3-12b-it": 7,
+        "meta-llama/Llama-3.1-8B-Instruct": 5
+      }
+    },
+    "layer_range_end": {
+      "default": 15,
+      "fixed_by_model": {
+        "Qwen/Qwen2.5-3B-Instruct": 18,
+        "google/gemma-3-4b-it": 16,
+        "mistralai/Mistral-7B-Instruct-v0.3": 16,
+        "google/gemma-3-12b-it": 24,
+        "meta-llama/Llama-3.1-8B-Instruct": 16
+      }
+    },
+    "max_layers_to_combine": 1,
+    "threshold_min": 0.0,
+    "threshold_max": 1.0,
+    "threshold_step": 0.001,
+    "gate_weighting": "manual_category",
+    "gate_category_weights": {
+      "original": 7.5,
+      "close_harmful": 0.5,
+      "benign_harmful_words": 1.5,
+      "benign_same_structure": 1.5
+    }
+  },
+  "validation_selected": {
+    "strength": {
+      "default": 0.1,
+      "values": [
+        0.1,
+        0.5,
+        1.0,
+        2.0,
+        10.0,
+        100.0,
+        500.0
+      ],
+      "fixed_by_model": {
+        "Qwen/Qwen2.5-3B-Instruct": 2.22,
+        "mistralai/Mistral-7B-Instruct-v0.3": 0.25,
+        "google/gemma-3-4b-it": 550.0,
+        "google/gemma-3-12b-it": 550.0,
+        "meta-llama/Llama-3.1-8B-Instruct": 0.4
+      }
+    },
+    "condition_layers": {
+      "default": [
+        14
+      ],
+      "fixed_by_model": {
+        "Qwen/Qwen2.5-3B-Instruct": [
+          14
+        ],
+        "google/gemma-3-4b-it": [
+          15
+        ],
+        "meta-llama/Llama-3.1-8B-Instruct": [
+          6
+        ],
+        "mistralai/Mistral-7B-Instruct-v0.3": [
+          12
+        ]
+      }
+    },
+    "condition_threshold": {
+      "default": 0.254,
+      "fixed_by_model": {
+        "Qwen/Qwen2.5-3B-Instruct": 0.254,
+        "google/gemma-3-4b-it": 0.026,
+        "meta-llama/Llama-3.1-8B-Instruct": 0.633,
+        "mistralai/Mistral-7B-Instruct-v0.3": 0.459
+      }
+    },
+    "condition_direction": {
+      "default": "larger",
+      "values": [
+        "larger",
+        "smaller"
+      ],
+      "fixed_by_model": {
+        "Qwen/Qwen2.5-3B-Instruct": "larger",
+        "google/gemma-3-4b-it": "larger",
+        "meta-llama/Llama-3.1-8B-Instruct": "smaller",
+        "mistralai/Mistral-7B-Instruct-v0.3": "smaller"
+      }
+    }
+  },
+  "inference_fixed": {
+    "use_chat_template": true,
+    "system_prompt": "You are a helpful assistant.",
+    "add_generation_prompt": true,
+    "batch_size": 32,
+    "max_input_tokens": 4096,
+    "max_new_tokens": 250,
+    "vector_method": "pca_pairwise",
+    "condition_vector_method": "pca_pairwise",
+    "layers": "auto",
+    "condition_comparison_mode": "mean",
+    "apply_on_first_call": true
+  }
+}

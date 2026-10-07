@@ -1,0 +1,14 @@
+{
+  "method": "unsteered",
+  "training_fixed": {},
+  "validation_fixed": {},
+  "validation_selected": {},
+  "inference_fixed": {
+    "use_chat_template": true,
+    "system_prompt": "You are a helpful assistant.",
+    "add_generation_prompt": true,
+    "batch_size": 8,
+    "max_input_tokens": 4096,
+    "max_new_tokens": 250
+  }
+}
